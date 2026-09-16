@@ -1,0 +1,27 @@
+{
+  "tag": "mail_1.4.0",
+  "version": "1.4.0",
+  "built_at": "2026-09-16T20:37:09+08:00",
+  "elf": "D:\\myProject\\email-review\\artifacts\\release\\mail_1.4.0\\SendSMTPClientLinux",
+  "elf_bytes": 75610944,
+  "elf_magic": "7F 45 4C 46",
+  "elf_sha256": "B209BAA389DDBCE20785350ABAA8F3E1129427CDE1C15D80B9A1124E0682D964",
+  "shell": "D:\\myProject\\email-review\\artifacts\\release\\mail_1.4.0\\SendSMTPClientShell.sh",
+  "shell_sha256": "C32903B940480A58DAF9D2350678EE300870DAB147CFECF4393FF3FF5FA1546D",
+  "shell_template": "D:\\myProject\\email-review\\artifacts\\shell\\SendSMTPClientShell.sh",
+  "control_server": "103.116.246.5:8621",
+  "deploy_base": "http://103.116.246.5:8621/asset",
+  "download_url": "http://103.116.246.5:8621/asset/mail_1.4.0/SendSMTPClientLinux",
+  "deploy_sh_url": "http://103.116.246.5:8621/deploy.sh",
+  "control_assets": "D:\\myProject\\email-review\\decompiled\\SendMailControl\\bin\\Release\\net461\\release\\mail_1.4.0",
+  "markers": {
+    "max_per_mx_host_per_min": false,
+    "限流": false,
+    "0": true,
+    "send_pace_ms": false,
+    "THROTTLE": false,
+    "version:1.2.": false,
+    "Enable_sticky_identity": false,
+    "dedupe_window_hours": false
+  }
+}
