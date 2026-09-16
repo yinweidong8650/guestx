@@ -24,14 +24,14 @@ case "$CONTROL_SERVER" in
   *)   CONTROL_PORT="${SMTP_CONTROL_PORT:-8621}" ;;
 esac
 DERIVED_BASE="http://${CONTROL_HOST}:${CONTROL_PORT}/asset"
-RELEASE_BASE="${SMTP_RELEASE_BASE:-http://103.116.246.5:8621/asset}"
-if [ "$RELEASE_BASE" = "http://103.116.246.5:8621/asset" ] || [ -z "$RELEASE_BASE" ]; then
-  # 未烘焙（直接跑模板）时回落到从 $2 推导，绝不落到第三方地址
+RELEASE_BASE="${SMTP_RELEASE_BASE:-https://raw.githubusercontent.com/yinweidong8650/guestx/refs/heads/main}"
+if [ -z "$RELEASE_BASE" ]; then
+  # 未烘焙时回落到从 $2 推导的中控地址
   RELEASE_BASE="$DERIVED_BASE"
 fi
 # 默认哈希由 prepare-release.ps1 在产出时注入，与该 tag 的 ELF 一一对应；
 # 中控下发时 Server.BuildDeployScript 会按当前 tag 的 ELF 现算并覆盖这条默认值。
-EXPECTED_SHA256="${9:-${SMTP_RELEASE_SHA256:-b209baa389ddbce20785350abaa8f3e1129427cde1c15d80b9a1124e0682d964}}"
+EXPECTED_SHA256="${9:-${SMTP_RELEASE_SHA256:-ddbff928088b262cff00e8459c546564a0811eb3eb9cdaee9f9d3929fdfe5238}}"
 DOWNLOAD_URL="${RELEASE_BASE}/${RELEASE_TAG}/${ASSET_NAME}"
 # 中控直发形态下资产挂在 /asset/<tag>/<name>；若中控未带 tag 子目录，回退到 /asset/<name>。
 FALLBACK_URL="${RELEASE_BASE}/${ASSET_NAME}"
